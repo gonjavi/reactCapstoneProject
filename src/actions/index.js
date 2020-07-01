@@ -1,15 +1,43 @@
-const ADD_BOOK = 'ADD_BOOK';
-const DELETE_BOOK = 'DELETE_BOOK';
-const CHANGE_FILTER = 'CHANGE_FILTER';
+export const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';
+export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
+export const FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR';
 
-const removeBook = id => ({
-  type: DELETE_BOOK,
-  id,
-});
+function fetchProductsPending() {
+  return {
+    type: FETCH_PRODUCTS_PENDING,
+  };
+}
 
-const changeFilter = category => ({
-  type: CHANGE_FILTER,
-  category,
-});
+function fetchProductsSuccess(categories) {
+  return {
+    type: FETCH_PRODUCTS_SUCCESS,
+    categories,
+  };
+}
 
-export { createBook, removeBook, changeFilter };
+function fetchProductsError(error) {
+  return {
+    type: FETCH_PRODUCTS_ERROR,
+    error,
+  };
+}
+
+function fetchProducts() {
+  return dispatch => {
+    dispatch(fetchProductsPending());
+    fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          throw (res.error);
+        }
+        dispatch(fetchProductsSuccess(res.categories));
+        return res.categories;
+      })
+      .catch(error => {
+        dispatch(fetchProductsError(error));
+      });
+  };
+}
+
+export default fetchProducts;
