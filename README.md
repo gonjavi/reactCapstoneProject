@@ -4,7 +4,6 @@ This is a capstone project built using the [Meals DB](https://www.themealdb.com/
 ![screenshot](./screenshot.png)
 
 
-In the project directory, you can run:
 ### Prerequisites
 - npm 6.14.5
 - node 14.3.0
@@ -35,7 +34,7 @@ You will also see any lint errors in the console.
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://reactcapstonegon.herokuapp.com/)
 
 ### Prerequisites
 
