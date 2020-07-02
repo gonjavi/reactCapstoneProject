@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import Meal from '../components/Meal';
 
 class MealList extends React.Component {
@@ -20,14 +21,16 @@ class MealList extends React.Component {
     let MealList;
     MealList = Meals.map(
       b => (
-        <Meal 
-          key={b.idCategory}
-          Id={b.idCategory}
-          title={b.strCategory}
-          cat={b.strCategory}
-          picture={b.strCategoryThumb}
-          onClick="location.href='/meal/'+b.idCategory';"
-        />
+        <NavLink to={`/meal/${b.idCategory}`} key={b.idCategory}>
+          <Meal
+            key={b.idCategory}
+            Id={b.idCategory}
+            title={b.strCategory}
+            cat={b.strCategory}
+            picture={b.strCategoryThumb}
+            onClick="location.href='/meal/'+b.idCategory';"
+          />
+        </NavLink>
       ),
     );
     /* if (categories.filter === 'All') {
