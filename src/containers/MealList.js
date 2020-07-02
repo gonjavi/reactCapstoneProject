@@ -52,6 +52,7 @@ class MealList extends React.Component {
     }
     return (
       <div>
+        <h1>Meals</h1>
         <CategoryFilter handleFilterChange={this.handleFilterChange} />
         {MealList}
       </div>

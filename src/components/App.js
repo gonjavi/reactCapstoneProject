@@ -30,7 +30,6 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         {error && <span className="error">{error}</span>}
-        <h1>Meals</h1>
         <BrowserRouter>
           <div className="App">
             <Switch>
