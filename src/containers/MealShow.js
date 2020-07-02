@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Meal from '../components/Meal';
-import { getProductsError, getProducts, getProductsPending } from '../reducers/index';
+import { getProductsError, getProducts, getProductsPending } from '../reducers/food';
 
 const MealShow = props => {
   const {
@@ -11,8 +12,7 @@ const MealShow = props => {
   } = props;
   const { params } = match;
   const { id } = params;
-  const mealFiltered = categories.filter(cate => cate.idCategory === id);
-  console.log(mealFiltered)
+  const mealFiltered = categories.categories.filter(cate => cate.idCategory === id);
   const showMeal = mealFiltered.map(
     b => (
       <Meal
@@ -22,13 +22,13 @@ const MealShow = props => {
         cat={b.strCategory}
         picture={b.strCategoryThumb}
         description={b.strCategoryDescription}
-        onClick="location.href='/meal/'+b.idCategory';"
       />
     ),
   );
   return (
     <div>
       <h2>{mealFiltered.strCategory}</h2>
+      <NavLink to="/">Back</NavLink>
       {showMeal}
       <p>{mealFiltered.strCategoryDescription}</p>
     </div>

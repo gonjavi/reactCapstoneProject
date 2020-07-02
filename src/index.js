@@ -5,11 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import foodReducer from './reducers/index';
+import indexReducer from './reducers/index';
 import App from './components/App';
 import './index.css';
 
-const store = createStore(foodReducer, composeWithDevTools(
+const store = createStore(indexReducer, composeWithDevTools(
   applyMiddleware(thunkMiddleware, logger),
 ));
 

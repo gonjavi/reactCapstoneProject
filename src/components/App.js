@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MealList from '../containers/MealList';
 import MealShow from '../containers/MealShow';
-import fetchProducts from '../actions/index';
-import { getProductsError, getProducts, getProductsPending } from '../reducers/index';
+import { fetchProducts } from '../actions/index';
+import { getProductsError, getProducts, getProductsPending } from '../reducers/food';
 
 class App extends React.Component {
   constructor(props) {
