@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Container from 'react-bootstrap/Container';
 import { NavLink } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Meal from '../components/Meal';
 import { changeFilter } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
@@ -52,9 +55,11 @@ class MealList extends React.Component {
     }
     return (
       <div>
-        <h1>Meals</h1>
+        <h1 className="title">Meals</h1>
         <CategoryFilter handleFilterChange={this.handleFilterChange} />
-        {MealList}
+        <Row>
+          {MealList}
+        </Row>
       </div>
     );
   }

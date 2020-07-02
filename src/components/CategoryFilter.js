@@ -17,7 +17,7 @@ const CategoryFilter = props => {
     <div>
       <Form>
         <Form.Group className="categories" controlId="Form.ControlSelect1">
-          <Form.Label>Categories</Form.Label>
+          <Form.Label className="categ-title">Categories</Form.Label>
           <Form.Control name="category" value={category} onChange={handleChange} as="select">
             <option value="All">All</option>
             <option value="Beef">Beef</option>
