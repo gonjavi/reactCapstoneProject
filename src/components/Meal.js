@@ -11,6 +11,7 @@ const Meal = props => {
   return (
     <div>
       <h1>{title}</h1>
+      <img src={picture} alt={picture} className="img" />
     </div>
   );
 };

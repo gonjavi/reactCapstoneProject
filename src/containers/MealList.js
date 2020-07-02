@@ -5,17 +5,18 @@ import Meal from '../components/Meal';
 class MealList extends React.Component {
   constructor(props) {
     super(props);
-    this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);    
   }
- 
+  
   handleFilterChange(category) {
-    /* const { changeFilter } = this.props;
-    changeFilter(category); */
+     const { changeFilter } = this.props;
+    changeFilter(category);
   }
+
 
   render() {
     const { Meals } = this.props;
-    console.log(Meals)
+    console.log(Meals);
     let MealList;
     MealList = Meals.map(
       b => (
@@ -25,13 +26,14 @@ class MealList extends React.Component {
           title={b.strCategory}
           cat={b.strCategory}
           picture={b.strCategoryThumb}
+          onClick="location.href='/meal/'+b.idCategory';"
         />
       ),
     );
     /* if (categories.filter === 'All') {
       MealList = categories.map(
         b => (
-          <Meal 
+          <Meal
             key={b.id}
             Id={b.id}
             title={b.title}
