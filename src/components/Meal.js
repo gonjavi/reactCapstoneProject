@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 const Meal = props => {
   const {
@@ -10,13 +8,11 @@ const Meal = props => {
     picture,
   } = props;
   return (
-    <Row>
-      <Col xs={6}>
-        <h3 className="meal-title">{title}</h3>
-        <img src={picture} alt={picture} className="img" />
-        <p>{description}</p>
-      </Col>
-    </Row>
+    <div className="text-center">
+      <h3 className="meal-title text-center">{title}</h3>
+      <img src={picture} alt={picture} className="img img-fluid" />
+      <p>{description}</p>
+    </div>
   );
 };
 Meal.propTypes = {

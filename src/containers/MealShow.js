@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Meal from '../components/Meal';
 import { getProductsError, getProducts, getProductsPending } from '../reducers/food';
 
@@ -26,12 +29,16 @@ const MealShow = props => {
     ),
   );
   return (
-    <div>
-      <h2>{mealFiltered.strCategory}</h2>
-      <NavLink to="/">Back</NavLink>
-      {showMeal}
-      <p>{mealFiltered.strCategoryDescription}</p>
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12} md={12} lg={{ span: 8, offset: 2 }}>
+          <h2>{mealFiltered.strCategory}</h2>
+          <NavLink to="/"><h3 className="back">Back</h3></NavLink>
+          {showMeal}
+          <p>{mealFiltered.strCategoryDescription}</p>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
