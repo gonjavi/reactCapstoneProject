@@ -3,7 +3,7 @@ import { FETCH_PRODUCTS_PENDING, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR } 
 const initialState = {
   pending: false,
   categories: [],
-  error: null,
+  error: '',
 };
 
 export default function foodReducer(state = initialState, action) {

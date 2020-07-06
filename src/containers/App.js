@@ -3,10 +3,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MealList from '../containers/MealList';
-import MealShow from '../containers/MealShow';
+import MealList from './MealList';
+import MealShow from './MealShow';
 import { fetchProducts } from '../actions/index';
-import { getProductsError, getProducts, getProductsPending } from '../reducers/food';
+import { getProductsError, getProducts } from '../reducers/food';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
@@ -21,7 +21,8 @@ class App extends React.Component {
   }
 
   shouldComponentRender() {
-    if (this.pending === false) return false;
+    const { pending } = this.props;
+    if (pending === false) return false;
     return true;
   }
 
@@ -41,17 +42,21 @@ class App extends React.Component {
     );
   }
 }
-
+App.defaultProps = {
+  error: '',
+  pending: true,
+};
 App.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
-  error: PropTypes.arrayOf(PropTypes.string).isRequired,
+  categories: PropTypes.objectOf(PropTypes.any).isRequired,
+  error: PropTypes.string,
   fetchProducts: PropTypes.func.isRequired,
+  pending: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   error: getProductsError(state),
   categories: getProducts(state),
-  pending: getProductsPending(state),
+  pending: state.pending,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -78,8 +78,12 @@ class MealList extends React.Component {
   }
 }
 
+MealList.defaultProps = {
+  Meals: {},
+};
+
 MealList.propTypes = {
-  Meals: PropTypes.instanceOf(Array).isRequired,
+  Meals: PropTypes.objectOf(PropTypes.any),
   changeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };

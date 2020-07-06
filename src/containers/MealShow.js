@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Meal from '../components/Meal';
-import { getProductsError, getProducts, getProductsPending } from '../reducers/food';
+import { getProducts } from '../reducers/food';
 
 const MealShow = props => {
   const {
@@ -31,7 +31,7 @@ const MealShow = props => {
   return (
     <Container>
       <Row>
-        <Col xs={12} md={12} lg={{ span: 8, offset: 2 }}>
+        <Col xs={12} md={12} lg={{ span: 9, offset: 1 }}>
           <h2>{mealFiltered.strCategory}</h2>
           <NavLink to="/"><h3 className="back">Back</h3></NavLink>
           {showMeal}
@@ -43,18 +43,16 @@ const MealShow = props => {
 };
 
 MealShow.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  categories: PropTypes.objectOf(PropTypes.any).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
 
 const mapStateToProps = state => ({
-  error: getProductsError(state),
   categories: getProducts(state),
-  pending: getProductsPending(state),
   id: PropTypes.string.isRequired,
 });
 

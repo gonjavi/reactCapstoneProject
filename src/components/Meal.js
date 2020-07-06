@@ -15,10 +15,14 @@ const Meal = props => {
     </div>
   );
 };
+Meal.defaultProps = {
+  description: '',
+};
+
 Meal.propTypes = {
   title: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
 };
 
 export default Meal;

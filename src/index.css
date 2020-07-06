@@ -45,9 +45,23 @@ p {
   border: 1px solid #98d0ec;
 }
 
+p {
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 991px) {
+  p {
+    font-size: 18px;
+  }
+}
+
 @media only screen and (max-width: 576px) {
   .img {
     width: 80%;
+  }
+
+  p {
+    font-size: 18px;
   }
 }
 
